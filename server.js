@@ -8,7 +8,7 @@ app.use(express.json())
 app.get('/user/:id' , async function(req ,res ){
     const { id } = req.params
     const dept = await pool.query( 'SELECT * FROM employee JOIN department ON employee.department_id = department.id WHERE employee.id = $1', [id]);
-    res.send({data: dept.rows})
+    res.send({data: dept.rows});
 })
 
 app.listen(5000 ,()=>{
